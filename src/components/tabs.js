@@ -13,9 +13,30 @@ const Tabs = (topics) => {
   //   <div class="tab">technology</div>
   // </div>
   //
+
+  const topicsDiv = document.createElement('div');
+  topicsDiv.classList.add("topics");
+
+  for (let i = 0; i < topics.length; i++) {
+    const topic = topics[i];
+    const topicElement = document.createElement('div');
+    topicElement.classList.add("tab");
+    topicElement.textContent = topic;
+
+    topicsDiv.appendChild(topicElement);
+  }
+  return topicsDiv
 }
 
 const tabsAppender = (selector) => {
+axios.get('http://localhost:5001/api/topics')
+  .then( response => {
+    const topicsData = response.data.topics
+    const container = document.querySelector('.tabs-container')
+    container.appendChild(Tabs(topicsData))
+  })
+
+  
   // TASK 4
   // ---------------------
   // Implement this function which takes a css selector as its only argument.
