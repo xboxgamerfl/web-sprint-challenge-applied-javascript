@@ -35,13 +35,14 @@ const Card = (article) => {
   image.src = article.authorPhoto;
 
   const authorSpan = document.createElement('span');
-  authorSpan.textContent = article.authorName;
+  authorSpan.textContent = "by " + article.authorName;
 
   imgDiv.appendChild(image);
   authorDiv.appendChild(imgDiv);
+  authorDiv.appendChild(authorSpan);
   cardDiv.appendChild(headlineDiv);
   cardDiv.appendChild(authorDiv);
-  cardDiv.appendChild(authorSpan);
+  
 
   return cardDiv;
 }
