@@ -33,7 +33,8 @@ axios.get('http://localhost:5001/api/topics')
   .then( response => {
     const topicsData = response.data.topics
     const container = document.querySelector('.tabs-container')
-    container.appendChild(Tabs(topicsData))
+    const tab = (Tabs(topicsData))
+    container.appendChild(tab)
   })
 
   
